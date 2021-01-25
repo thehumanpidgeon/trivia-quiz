@@ -8,8 +8,8 @@ Data should be stored in a text file with each line a different question. The pr
 Also located in the .config directory should be a file named index.txt. This should contain the availible data for quizes. The first item on each line should be the prompt for the user to select from and the second item contains the name of the file that should be accessed with a \n character on the end.
 
 ## Building:
-'''
+```
 git clone https://github.com/thehumanpidgeon/trivia-quiz.git
 make clean
-'''
+```
 Then copy the binary to where every you want to put
