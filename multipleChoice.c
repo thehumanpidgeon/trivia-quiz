@@ -5,7 +5,7 @@
 void multipleChoice(struct quiz quizData[],unsigned fileLength){
     //continues the quiz until n entered
     int right, f[3];
-    char *choice = malloc(3), *answer = malloc(3);
+    char *choice = malloc(3), *answer = malloc(3), temp;
     while (*choice != 'n'){
 
         //getting randomlibc.so.6 numnber between 0 and 3 (determines placement of right answer)
@@ -48,19 +48,25 @@ void multipleChoice(struct quiz quizData[],unsigned fileLength){
         printf("Please enter an answer (A/B/C/D)\n");
         while (!(*answer > 64 && *answer < 69))
             fgets(answer,2,stdin);
+             while((temp=getchar()) != EOF && temp != '\n')
+		        printf("Invalid input... please enter a letter: \n");
         //compare the ascii value of answer to rand that determines right answer placement with constant to account for ascii values
+        
         if ( *answer == (right + 65)){
             printf("That is correct\n");
 
         }
         else
             printf("That is incorrect.\nThe correct answer was %s",quizData[f[0]].capital);
+        *answer = '\0';
 
 
         //get user input for continuing
         do {
             printf("Do you want to continue (y/n)?\n");
+            while((temp=getchar()) != EOF && temp != '\n');
             fgets(choice,2,stdin);
+
         } while (*choice != 'n' && *choice != 'y');
 
         
